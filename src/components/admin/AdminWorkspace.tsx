@@ -42,7 +42,7 @@ export default function AdminWorkspace({ adminEmail, children }: { adminEmail: s
       {menuOpen && <button className={styles.backdrop} type="button" aria-label="Close admin navigation" onClick={closeMenu} />}
       <aside className={`${styles.sidebar} ${menuOpen ? styles.sidebarOpen : ""}`}>
         <Link className={styles.brand} href="/admin/dashboard" onClick={closeMenu} aria-label="Grace Technologies admin dashboard">
-          <Image src="/logo.svg" alt="Grace Technologies" width={800} height={330} priority sizes="190px" />
+          <Image src="/images/grace-technologies-logo.png" alt="Grace Technologies" width={480} height={552} priority sizes="190px" />
           <span>ADMIN PANEL</span>
         </Link>
         <nav className={styles.navigation} aria-label="Admin navigation">

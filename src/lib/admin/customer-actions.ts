@@ -106,7 +106,7 @@ export function filterEnquiries(enquiries: Enquiry[], filters: EnquiryFilters): 
     const matchesStatus = filters.status === "all" || enquiry.status === filters.status;
     const matchesQuery = !normalized || [
       enquiry.full_name,
-      enquiry.email,
+      enquiry.email ?? "",
       enquiry.phone ?? "",
       enquiry.service,
       enquiry.message,

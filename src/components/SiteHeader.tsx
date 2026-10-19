@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { type MouseEvent, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -21,12 +21,12 @@ function Brand() {
     <Link href="/" className={styles.brand} aria-label="Grace Technologies home">
       <Image
         className={styles.logo}
-        src="/logo.svg"
-        alt="Grace Technologies"
-        width={800}
-        height={330}
+        src="/images/grace-technologies-logo.png"
+        alt="Grace Technologies Pvt."
+        width={480}
+        height={552}
         priority
-        sizes="(max-width: 380px) 130px, (max-width: 960px) 145px, 175px"
+        sizes="(max-width: 380px) 73px, (max-width: 960px) 80px, 94px"
       />
     </Link>
   );
@@ -60,6 +60,11 @@ export default function SiteHeader() {
     setIsMenuOpen(false);
   }
 
+  function openEnquiry(event: MouseEvent<HTMLAnchorElement>) {
+    event.preventDefault();
+    window.dispatchEvent(new Event("grace:open-enquiry-modal"));
+  }
+
   return (
     <header className={styles.header}>
       <div className={styles.inner}>
@@ -81,7 +86,7 @@ export default function SiteHeader() {
           ))}
         </nav>
         <div className={styles.actions}>
-          <Link href="/contact" className={styles.cta}>Book a Consultation</Link>
+          <Link href="/contact" className={styles.cta} onClick={openEnquiry}>Book a Consultation</Link>
           <button
             className={styles.menuButton}
             ref={menuButtonRef}
@@ -115,7 +120,7 @@ export default function SiteHeader() {
             onClick={closeMenu}
           >{item.label}</Link>
         ))}
-        <Link className={styles.mobileCta} href="/contact" tabIndex={isMenuOpen ? 0 : -1} onClick={closeMenu}>Book a Consultation</Link>
+        <Link className={styles.mobileCta} href="/contact" tabIndex={isMenuOpen ? 0 : -1} onClick={(event) => { closeMenu(); openEnquiry(event); }}>Book a Consultation</Link>
       </nav>
     </header>
   );

@@ -12,6 +12,7 @@ export default function EnquiryModal() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const dialogRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     if (pathname !== "/") return;
@@ -36,8 +37,7 @@ export default function EnquiryModal() {
       if (event.key === "Escape") dismiss();
       if (event.key !== "Tab") return;
 
-      const dialog = document.querySelector<HTMLElement>("[data-enquiry-dialog]");
-      const focusable = dialog?.querySelectorAll<HTMLElement>(
+      const focusable = dialogRef.current?.querySelectorAll<HTMLElement>(
         'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])',
       );
       if (!focusable?.length) return;
@@ -69,6 +69,15 @@ export default function EnquiryModal() {
     };
   }, [isOpen]);
 
+  useEffect(() => {
+    function openFromTrigger() {
+      setIsOpen(true);
+    }
+
+    window.addEventListener("grace:open-enquiry-modal", openFromTrigger);
+    return () => window.removeEventListener("grace:open-enquiry-modal", openFromTrigger);
+  }, []);
+
   function dismiss() {
     try {
       window.sessionStorage.setItem(dismissalKey, "yes");
@@ -89,15 +98,11 @@ export default function EnquiryModal() {
         role="dialog"
         aria-modal="true"
         aria-labelledby="enquiry-title"
-        aria-describedby="enquiry-description"
+        ref={dialogRef}
         data-enquiry-dialog
       >
         <header className={styles.header}>
-          <div>
-            <span className={styles.eyebrow}>Grace Technologies</span>
-            <h2 id="enquiry-title">Let&apos;s Discuss Your Project</h2>
-            <p id="enquiry-description">Tell us a little about your business and how we can help.</p>
-          </div>
+          <h2 id="enquiry-title">Enquiry Form</h2>
           <button
             className={styles.close}
             ref={closeButtonRef}

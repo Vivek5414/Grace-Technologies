@@ -31,10 +31,10 @@ export default function DashboardSidebar({
       <Link className={styles.brand} href="/" aria-label="Grace Technologies home">
         <Image
           className={styles.brandLogo}
-          src="/logo.svg"
+          src="/images/grace-technologies-logo.png"
           alt="Grace Technologies"
-          width={800}
-          height={330}
+          width={480}
+          height={552}
           priority
           sizes="180px"
         />

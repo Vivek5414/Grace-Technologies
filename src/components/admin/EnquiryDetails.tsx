@@ -82,7 +82,7 @@ export default function EnquiryDetails({ data }: { data: AdminEnquiryDetailResul
           <dl className={styles.detailList}>
             <div><dt>Customer</dt><dd>{enquiry.full_name}</dd></div>
             <div><dt>Phone</dt><dd>{enquiry.phone ? <a className={styles.cellLink} href={phoneHref(enquiry.phone)}>{enquiry.phone}</a> : "Not provided"}</dd></div>
-            <div><dt>Email</dt><dd><a className={styles.cellLink} href={`mailto:${enquiry.email}`}>{enquiry.email}</a></dd></div>
+            <div><dt>Email</dt><dd>{enquiry.email ? <a className={styles.cellLink} href={`mailto:${enquiry.email}`}>{enquiry.email}</a> : "Not provided"}</dd></div>
             <div><dt>Service</dt><dd>{enquiry.service}</dd></div>
             <div><dt>Source</dt><dd>{enquiry.source}</dd></div>
             <div><dt>Submitted</dt><dd><time dateTime={enquiry.created_at}>{new Intl.DateTimeFormat("en-US", { dateStyle: "full", timeStyle: "short" }).format(new Date(enquiry.created_at))}</time></dd></div>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import About from "@/components/home/About";
 import Contact from "@/components/home/Contact";
 import Hero from "@/components/home/Hero";
+import HomeStats from "@/components/home/HomeStats";
 import Industries from "@/components/home/Industries";
 import Process from "@/components/home/Process";
 import Projects from "@/components/home/Projects";
@@ -17,6 +18,7 @@ export default function HomePage() {
   return (
     <main>
       <Hero />
+      <HomeStats />
       <Services />
       <Industries />
       <Projects />

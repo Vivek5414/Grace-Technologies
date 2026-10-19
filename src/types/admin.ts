@@ -11,7 +11,7 @@ export type EnquiryStatus = "new" | "in_progress" | "resolved" | "spam";
 export type Enquiry = {
   id: string;
   full_name: string;
-  email: string;
+  email: string | null;
   phone: string | null;
   company?: string | null;
   service: string;

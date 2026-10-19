@@ -1,4 +1,6 @@
 import Image from "next/image";
+import Link from "next/link";
+import { industrySlugByTitle } from "@/lib/industry-detail-data";
 import { industries } from "@/lib/site-data";
 import styles from "./Industries.module.css";
 
@@ -24,13 +26,18 @@ export default function Industries() {
           {industries.map((industry) => {
             const icon = industryIcons[industry.title];
             return (
-              <article className={styles.item} key={industry.title}>
+              <Link
+                className={styles.item}
+                href={`/industries/${industrySlugByTitle[industry.title]}`}
+                key={industry.title}
+                aria-label={`Explore ${industry.title} industry solutions`}
+              >
                 <Image className={styles.icon} src={`/assets/industries/${icon}`} alt="" width={136} height={136} sizes="64px" />
                 <div className={styles.copy}>
                   <h3>{industry.title}</h3>
                   <p>{industry.detail}</p>
                 </div>
-              </article>
+              </Link>
             );
           })}
         </div>

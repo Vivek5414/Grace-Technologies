@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { LogIn } from "lucide-react";
+import { Mail, MapPin, LogIn } from "lucide-react";
 import styles from "./SiteFooter.module.css";
 
 const socialLinks = [
@@ -11,7 +11,34 @@ const socialLinks = [
   { label: "Facebook", href: "https://www.facebook.com/share/1EFVF3FZ1N/", icon: "facebook", external: true },
 ] as const;
 
-type SocialIconName = (typeof socialLinks)[number]["icon"] | "email";
+const quickLinks = [
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
+  { label: "Services", href: "/services" },
+  { label: "Industries", href: "/industries" },
+  { label: "Projects", href: "/projects" },
+  { label: "Insights", href: "/insights" },
+  { label: "Contact", href: "/contact" },
+  { label: "Admin Login", href: "/admin/login" },
+] as const;
+
+const serviceLinks = [
+  { label: "Website Development & Mobile App Development", href: "/services/web-development" },
+  { label: "Merchant Account Management", href: "/services/merchant-account-management" },
+  { label: "AI Agents, Workflow & Automation", href: "/services/ai-automation" },
+  { label: "Digital Marketing", href: "/services/digital-marketing" },
+] as const;
+
+const industryLinks = [
+  { label: "Healthcare", href: "/industries" },
+  { label: "Financial Services", href: "/industries" },
+  { label: "Retail", href: "/industries" },
+  { label: "Manufacturing", href: "/industries" },
+  { label: "Logistics", href: "/industries" },
+  { label: "Professional Services", href: "/industries" },
+] as const;
+
+type SocialIconName = (typeof socialLinks)[number]["icon"];
 
 function SocialIcon({ name }: { name: SocialIconName }) {
   const paths: Record<Exclude<SocialIconName, "email" | "instagram">, string> = {
@@ -29,11 +56,6 @@ function SocialIcon({ name }: { name: SocialIconName }) {
           <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" strokeWidth="2" />
           <circle cx="17.5" cy="6.7" r="1.2" />
         </>
-      ) : name === "email" ? (
-        <g fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8">
-          <rect x="2.5" y="4.5" width="19" height="15" rx="2" />
-          <path d="m3.5 6 8.5 7 8.5-7" />
-        </g>
       ) : (
         <path d={paths[name]} />
       )}
@@ -50,74 +72,70 @@ export default function SiteFooter() {
             <Link href="/" className={styles.brand} aria-label="Grace Technologies home">
               <Image
                 className={styles.logo}
-                src="/logo.svg"
+                src="/images/grace-technologies-logo.png"
                 alt="Grace Technologies"
-                width={800}
-                height={330}
+                width={480}
+                height={552}
                 sizes="180px"
               />
             </Link>
-            <h2 className={styles.companyName}>Grace Technologies Ltd.</h2>
-            <p className={styles.tagline}>Technology That Moves Your Business Forward.</p>
-            <p className={styles.description}>Web development, cloud solutions, custom software, and digital services designed around the way your business works.</p>
+            <p className={styles.description}>
+              Grace Technologies provides technology and digital services to help businesses build better online experiences, improve workflows, and support their digital operations.
+            </p>
             <div className={styles.contactDetails}>
+              <a href="mailto:contact@gracetechnologies.uk">
+                <Mail size={17} aria-hidden="true" />
+                <span>contact@gracetechnologies.uk</span>
+              </a>
               <div>
-                <span>Registered Office</span>
+                <MapPin size={17} aria-hidden="true" />
                 <address>398 Whalebone Lane South, Romford, Greater London, RM6 6HP, England</address>
               </div>
             </div>
           </div>
-          <nav className={styles.column} aria-label="Company">
-            <h2>Company</h2>
-            <div className={styles.links}>
-              <Link href="/about">About Us</Link>
-              <Link href="/contact">Contact</Link>
-              <Link href="/projects">Projects</Link>
-            </div>
-          </nav>
-          <nav className={styles.column} aria-label="Services">
-            <h2>Services</h2>
-            <div className={styles.links}>
-              <Link href="/services#web-development">Web Development</Link>
-              <Link href="/services#cloud-solutions">Cloud Solutions</Link>
-              <Link href="/services#it-consulting">IT Consulting</Link>
-              <Link href="/services#digital-transformation">Digital Solutions</Link>
-            </div>
-          </nav>
-          <div className={`${styles.column} ${styles.connect}`}>
-            <h2>Connect</h2>
-            <ul className={styles.socialLinks}>
-              {socialLinks.map(({ label, href, icon }) => (
-                <li key={label}>
-                  <a
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={label}
-                    title={label}
-                  >
-                    <SocialIcon name={icon} />
-                  </a>
-                </li>
-              ))}
-              <li>
-                <a href="mailto:gracetechnologyofficial@gmail.com" aria-label="Email Grace Technologies" title="Email">
-                  <SocialIcon name="email" />
-                </a>
-              </li>
-            </ul>
+          <div className={styles.navigationColumns}>
+            <nav className={styles.column} aria-label="Quick links">
+              <h2>Quick Links</h2>
+              <div className={styles.links}>
+                {quickLinks.map(({ label, href }) => (
+                  <Link className={label === "Admin Login" ? styles.adminLink : undefined} href={href} key={label}>
+                    {label === "Admin Login" && <LogIn size={15} aria-hidden="true" />}
+                    {label}
+                  </Link>
+                ))}
+              </div>
+            </nav>
+            <nav className={styles.column} aria-label="Services">
+              <h2>Our Services</h2>
+              <div className={styles.links}>
+                {serviceLinks.map(({ label, href }) => <Link href={href} key={label}>{label}</Link>)}
+              </div>
+            </nav>
+            <nav className={styles.column} aria-label="Industries">
+              <h2>Industries</h2>
+              <div className={styles.links}>
+                {industryLinks.map(({ label, href }) => <Link href={href} key={label}>{label}</Link>)}
+              </div>
+            </nav>
           </div>
         </div>
         <div className={styles.bottom}>
-          <span>© 2026 Grace Technologies Ltd. All rights reserved.</span>
-          <nav className={styles.legal} aria-label="Legal">
-            <Link href="/privacy">Privacy Policy</Link>
-            <Link href="/terms">Terms of Service</Link>
-          </nav>
-          <Link className={styles.adminButton} href="/admin/login">
-            <LogIn size={16} aria-hidden="true" />
-            <span>Admin Panel Login</span>
-          </Link>
+          <div className={styles.bottomMeta}>
+            <span>© 2026 Grace Technologies Ltd. All rights reserved.</span>
+            <nav className={styles.legal} aria-label="Legal">
+              <Link href="/privacy">Privacy Policy</Link>
+              <Link href="/terms">Terms of Service</Link>
+            </nav>
+          </div>
+          <ul className={styles.socialLinks} aria-label="Social media">
+            {socialLinks.map(({ label, href, icon }) => (
+              <li key={label}>
+                <a href={href} target="_blank" rel="noopener noreferrer" aria-label={label} title={label}>
+                  <SocialIcon name={icon} />
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </footer>

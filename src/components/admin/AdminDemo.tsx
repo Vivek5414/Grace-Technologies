@@ -114,7 +114,7 @@ export default function AdminDemo({ initialSection = "dashboard" }: { initialSec
       {menuOpen && <button className={styles.backdrop} type="button" aria-label="Close demo navigation" onClick={() => setMenuOpen(false)} />}
       <aside className={`${styles.sidebar} ${menuOpen ? styles.sidebarOpen : ""}`}>
         <Link className={styles.brand} href="/admin/login" aria-label="Return to Admin Portal">
-          <Image src="/logo.svg" alt="Grace Technologies" width={800} height={330} priority sizes="180px" />
+          <Image src="/images/grace-technologies-logo.png" alt="Grace Technologies" width={480} height={552} priority sizes="180px" />
           <span>ADMIN PANEL · DEMO</span>
         </Link>
         <nav className={styles.navigation} aria-label="Demo navigation">
@@ -239,7 +239,7 @@ export default function AdminDemo({ initialSection = "dashboard" }: { initialSec
                   <div className={styles.tableScroll}><table className={styles.table}><thead><tr><th>Customer</th><th>Email</th><th>Service</th><th>Source</th><th>Submitted</th><th>Status</th><th>Actions</th></tr></thead><tbody>
                     {filteredEnquiries.map((enquiry) => <tr key={enquiry.id}>
                       <td><button className={styles.primaryButton} type="button" onClick={() => setSelectedEnquiryId(enquiry.id)}>{enquiry.full_name}</button></td>
-                      <td>{enquiry.email}<span className={styles.secondaryText}>Phone not provided in demo</span></td><td>{enquiry.service}</td><td>{enquiry.source}</td><td>{formatDate(enquiry.created_at)}</td>
+                      <td>{enquiry.email ?? "Not provided"}<span className={styles.secondaryText}>Phone not provided in demo</span></td><td>{enquiry.service}</td><td>{enquiry.source}</td><td>{formatDate(enquiry.created_at)}</td>
                       <td><select className={styles.select} aria-label={`Change status for ${enquiry.full_name}`} value={enquiry.status} onChange={(event) => updateEnquiryStatus(enquiry.id, event.currentTarget.value as EnquiryStatus)}>{statusOptions.filter((status) => status !== "all").map((status) => <option key={status} value={status}>{enquiryStatusLabels[status]}</option>)}</select></td>
                       <td><button className={styles.tableAction} type="button" onClick={() => setSelectedEnquiryId(enquiry.id)}>View details</button></td>
                     </tr>)}

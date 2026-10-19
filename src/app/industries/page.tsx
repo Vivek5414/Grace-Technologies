@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { industries } from "@/lib/site-data";
+import { industrySlugByTitle } from "@/lib/industry-detail-data";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -49,14 +51,22 @@ export default function IndustriesPage() {
             {industries.map((industry, index) => {
               const icon = industryIcons[industry.title];
               return (
-                <article className={styles.card} key={industry.title}>
+                <Link
+                  className={styles.card}
+                  href={`/industries/${industrySlugByTitle[industry.title]}`}
+                  key={industry.title}
+                  aria-label={`Explore technology solutions for ${industry.title}`}
+                >
                   <div className={styles.cardTop}>
                     <Image className={styles.icon} src={`/assets/industries/${icon}`} alt="" width={136} height={136} sizes="72px" />
                     <span className={styles.number}>{String(index + 1).padStart(2, "0")}</span>
                   </div>
                   <h3>{industry.title}</h3>
                   <p>{industry.detail}</p>
-                </article>
+                  <span className={styles.cardLink}>
+                    Explore industry <ArrowRight size={16} aria-hidden="true" />
+                  </span>
+                </Link>
               );
             })}
           </div>

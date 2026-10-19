@@ -71,7 +71,7 @@ export default function EnquiryTable() {
                 return (
                   <tr key={enquiry.id}>
                     <td><Link className={styles.primaryText} href={`/admin/enquiries/${enquiry.id}`}>{enquiry.full_name}</Link><span className={styles.secondaryText}>{enquiry.message}</span></td>
-                    <td>{enquiry.email}<span className={styles.secondaryText}>Phone not provided in demo</span></td>
+                    <td>{enquiry.email ?? "Not provided"}<span className={styles.secondaryText}>Phone not provided in demo</span></td>
                     <td>{enquiry.service}</td>
                     <td>{enquiry.source}</td>
                     <td><time dateTime={enquiry.created_at}>{formatDate(enquiry.created_at)}</time></td>

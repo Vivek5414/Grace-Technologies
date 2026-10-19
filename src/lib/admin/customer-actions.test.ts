@@ -71,4 +71,15 @@ describe("admin customer actions", () => {
     expect(filterEnquiries(enquiries, { query: "", status: "resolved" }).map(({ id }) => id)).toEqual(["two"]);
     expect(filterEnquiries(enquiries, { query: "CLOUD", status: "new" })).toEqual([]);
   });
+
+  it("filters general enquiries that do not have an email address", () => {
+    const enquiry = {
+      id: "general", full_name: "Sofia Reed", email: null, phone: "+1 202 555 0101",
+      service: "General enquiry", message: "Please discuss a workflow improvement.",
+      status: "new" as const, created_at: "2026-10-03T00:00:00Z", source: "Website",
+      contact_id: null, follow_up_at: null,
+    };
+
+    expect(filterEnquiries([enquiry], { query: "workflow", status: "all" })).toEqual([enquiry]);
+  });
 });

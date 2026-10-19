@@ -1,4 +1,5 @@
 .header {
+  --header-height: 124px;
   position: sticky;
   top: 0;
   z-index: var(--z-header);
@@ -7,12 +8,12 @@
 }
 
 .inner {
-  display: flex;
+  display: grid;
   width: min(var(--container-width), calc(100% - 3rem));
-  min-height: 82px;
+  min-height: var(--header-height);
   align-items: center;
-  justify-content: space-between;
-  gap: clamp(0.8rem, 1.5vw, 1.3rem);
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  gap: clamp(0.65rem, 1.2vw, 1.2rem);
   margin-inline: auto;
 }
 
@@ -22,18 +23,23 @@
   align-items: center;
   gap: 0.7rem;
   color: var(--color-primary);
+  justify-self: start;
 }
 
 .logo {
   display: block;
-  width: clamp(160px, 15vw, 185px);
-  height: auto;
+  width: auto;
+  height: 108px;
+  max-width: 94px;
+  background: var(--color-neutral);
+  object-fit: contain;
 }
 
 .desktopNav {
   display: flex;
   align-items: center;
   gap: clamp(0.55rem, 1.15vw, 1rem);
+  justify-self: center;
 }
 
 .desktopNav > a {
@@ -56,6 +62,7 @@
   display: flex;
   align-items: center;
   gap: 0.7rem;
+  justify-self: end;
 }
 
 .cta {
@@ -117,8 +124,17 @@
 }
 
 @media (max-width: 960px) {
+  .header {
+    --header-height: 104px;
+  }
+
+  .inner {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
   .logo {
-    width: 152px;
+    height: 92px;
+    max-width: 80px;
   }
 
   .desktopNav {
@@ -131,7 +147,7 @@
 
   .mobileNav {
     position: fixed;
-    top: 82px;
+    top: var(--header-height);
     right: 1rem;
     bottom: 0.5rem;
     z-index: var(--z-drawer);
@@ -187,7 +203,8 @@
 
 @media (max-width: 380px) {
   .logo {
-    width: 138px;
+    height: 84px;
+    max-width: 73px;
   }
 }
 

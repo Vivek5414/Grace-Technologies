@@ -21,10 +21,10 @@ export default function AdminLoginForm({ initialError }: AdminLoginFormProps) {
         <Link className={styles.logoLink} href="/" aria-label="Grace Technologies home">
             <Image
               className={styles.logo}
-              src="/logo.svg"
+              src="/images/grace-technologies-logo.png"
               alt="Grace Technologies"
-              width={800}
-              height={330}
+              width={480}
+              height={552}
               sizes="160px"
             />
         </Link>
