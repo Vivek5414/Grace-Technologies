@@ -1,0 +1,64 @@
+.section {
+  padding-block: 0 5rem;
+  background: var(--color-surface);
+}
+
+.inner {
+  display: grid;
+  width: min(900px, calc(100% - 3rem));
+  gap: 1rem;
+  margin-inline: auto;
+}
+
+.note {
+  padding: 1.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-neutral);
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  color: var(--color-muted);
+  font-size: var(--text-xs);
+}
+
+.top span:first-child {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.note > svg {
+  margin-top: 1.2rem;
+  color: var(--color-secondary);
+}
+
+.note h2 {
+  margin-top: 0.5rem;
+  color: var(--color-primary);
+  font-size: var(--text-2xl);
+}
+
+.note p {
+  max-width: 680px;
+  margin-top: 0.5rem;
+  color: var(--color-muted);
+  font-size: var(--text-sm);
+  line-height: var(--leading-body);
+}
+
+.read {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: 1rem;
+  color: var(--color-primary);
+  font-size: var(--text-xs);
+  font-weight: 700;
+}
+
+@media (max-width: 560px) {
+  .inner { width: calc(100% - 2rem); }
+}

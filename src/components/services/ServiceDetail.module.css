@@ -1,0 +1,620 @@
+.page {
+  background: var(--color-surface);
+}
+
+.loading {
+  min-height: 50svh;
+  padding: 3rem max(1rem, calc((100% - var(--container-width)) / 2));
+  color: var(--color-muted);
+}
+
+.container {
+  width: min(var(--container-width), calc(100% - 3rem));
+  margin-inline: auto;
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding-block: 1rem clamp(3rem, 6vw, 5rem);
+  background: var(--color-neutral);
+}
+
+.hero::after {
+  position: absolute;
+  z-index: 0;
+  top: -18rem;
+  right: -16rem;
+  width: 42rem;
+  aspect-ratio: 1;
+  border: 1px solid color-mix(in srgb, var(--color-secondary) 36%, transparent);
+  border-radius: 50%;
+  content: "";
+  pointer-events: none;
+}
+
+.backLink {
+  display: inline-flex;
+  min-height: 2.4rem;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--color-muted);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.backLink:hover {
+  color: var(--color-primary);
+}
+
+.heroGrid {
+  position: relative;
+  z-index: 1;
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(25rem, 1.05fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 4rem);
+  padding-top: 1.6rem;
+}
+
+.heroCopy {
+  min-width: 0;
+}
+
+.eyebrow,
+.panelKicker {
+  color: var(--color-primary);
+  font-size: 0.65rem;
+  font-weight: 750;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.categoryLabel {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 1.15rem;
+  padding: 0.38rem 0.6rem;
+  border: 1px solid color-mix(in srgb, var(--color-secondary) 60%, var(--color-border));
+  border-radius: var(--radius-pill);
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+  font-size: 0.62rem;
+  font-weight: 750;
+  letter-spacing: 0.06em;
+}
+
+.categoryLabel svg {
+  color: color-mix(in srgb, var(--color-primary) 45%, var(--color-secondary));
+}
+
+.heroCopy h1 {
+  margin: 0.5rem 0 0;
+  color: var(--color-primary);
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 4.5vw, 3.5rem);
+  font-weight: 650;
+  line-height: 1.1;
+}
+
+.heroCopy > p {
+  max-width: 40rem;
+  margin: 0.85rem 0 0;
+  color: var(--color-muted);
+  font-size: var(--text-lg);
+  line-height: 1.65;
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 1.4rem;
+}
+
+.heroSupport {
+  display: grid;
+  gap: 0.3rem;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.heroSupport > span {
+  color: var(--color-muted);
+  font-size: 0.62rem;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+}
+
+.heroSupport p {
+  margin: 0;
+  color: var(--color-primary);
+  font-size: var(--text-xs);
+  font-weight: 650;
+  line-height: 1.5;
+}
+
+.primaryButton,
+.secondaryButton {
+  display: inline-flex;
+  min-height: 2.9rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 0.65rem 0.9rem;
+  border: 1px solid var(--color-primary);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  text-decoration: none;
+  transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+}
+
+.primaryButton {
+  border-color: var(--color-secondary);
+  background: var(--color-secondary);
+  color: var(--color-primary);
+}
+
+.secondaryButton {
+  background: var(--color-neutral);
+  color: var(--color-primary);
+}
+
+.primaryButton:hover,
+.secondaryButton:hover {
+  transform: translateY(-1px);
+  border-color: var(--color-secondary);
+  background: var(--color-secondary);
+  color: var(--color-primary);
+}
+
+.previewPanel {
+  min-width: 0;
+  overflow: hidden;
+  padding: 0.8rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+}
+
+.previewHeading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.1rem 0.2rem 0.7rem;
+  color: var(--color-muted);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.previewHeading span:last-child {
+  color: var(--color-primary);
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.previewPanel > p {
+  margin: 0.65rem 0.2rem 0.1rem;
+  color: var(--color-muted);
+  font-size: 0.65rem;
+  line-height: 1.5;
+}
+
+.previewLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin: 0.55rem 0.2rem 0.15rem;
+  color: var(--color-primary);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.previewLink:hover {
+  color: color-mix(in srgb, var(--color-primary) 65%, var(--color-secondary));
+}
+
+.previewPanel > div:last-of-type {
+  min-height: 14rem;
+}
+
+.previewPanel :global(svg) {
+  max-width: none;
+}
+
+.workflowPreview {
+  display: grid;
+  min-height: 14rem;
+  align-content: center;
+  gap: 0.55rem;
+  padding: 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-neutral);
+}
+
+.workflowStep {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  color: var(--color-primary);
+}
+
+.workflowStep > span {
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+}
+
+.workflowStep:nth-child(2) > span,
+.workflowStep:nth-child(4) > span {
+  border-color: color-mix(in srgb, var(--color-secondary) 60%, var(--color-border));
+  background: var(--color-secondary-soft);
+}
+
+.workflowStep strong {
+  font-size: var(--text-sm);
+}
+
+.workflowStep > i {
+  width: 1px;
+  height: 0.55rem;
+  margin-left: 1rem;
+  background: var(--color-border-strong);
+}
+
+.overview {
+  padding-block: clamp(3.25rem, 6vw, 5rem);
+  background: var(--color-surface);
+}
+
+.overview > .container {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.85fr);
+  align-items: start;
+  gap: clamp(2rem, 5vw, 4rem);
+}
+
+.overviewIntro h2,
+.outcomeCard h2 {
+  margin: 0.45rem 0 0;
+  color: var(--color-primary);
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  line-height: 1.25;
+}
+
+.overviewIntro > p {
+  margin: 0.7rem 0 0;
+  color: var(--color-muted);
+  font-size: var(--text-base);
+  line-height: 1.65;
+}
+
+.overviewIntro .existingDescription {
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--color-border);
+  font-size: var(--text-sm);
+}
+
+.outcomeCard {
+  padding: 1.2rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-neutral);
+  box-shadow: 0 5px 18px color-mix(in srgb, var(--color-primary) 4%, transparent);
+}
+
+.overviewNote {
+  display: grid;
+  align-content: start;
+  justify-items: start;
+  padding: clamp(1.4rem, 3vw, 2.1rem);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-neutral);
+  box-shadow: var(--shadow-card);
+}
+
+.overviewIcon {
+  display: grid;
+  width: 3rem;
+  height: 3rem;
+  place-items: center;
+  margin-bottom: 1.1rem;
+  border: 1px solid color-mix(in srgb, var(--color-secondary) 55%, var(--color-border));
+  border-radius: 0.9rem;
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+}
+
+.overviewNote h3 {
+  margin: 0.5rem 0 0;
+  color: var(--color-primary);
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  line-height: 1.35;
+}
+
+.overviewNote p {
+  margin: 0.5rem 0 0;
+  color: var(--color-muted);
+  font-size: var(--text-sm);
+  line-height: 1.65;
+}
+
+.capabilities {
+  padding-block: 0 4rem;
+  background: var(--color-surface);
+}
+
+.capabilitiesHeading {
+  max-width: 44rem;
+  margin-bottom: 1.4rem;
+}
+
+.capabilitiesHeading h2 {
+  margin: 0.45rem 0 0;
+  color: var(--color-primary);
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  line-height: 1.25;
+}
+
+.capabilitiesHeading p {
+  margin: 0.45rem 0 0;
+  color: var(--color-muted);
+  font-size: var(--text-sm);
+  line-height: 1.6;
+}
+
+.capabilityGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.capabilityCard {
+  position: relative;
+  display: grid;
+  min-height: 12rem;
+  align-content: start;
+  justify-items: start;
+  padding: 1.1rem;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-neutral);
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--color-primary) 4%, transparent);
+}
+
+.capabilityCard > span {
+  display: grid;
+  width: 2.5rem;
+  height: 2.5rem;
+  place-items: center;
+  border: 1px solid color-mix(in srgb, var(--color-secondary) 55%, var(--color-border));
+  border-radius: 0.7rem;
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+}
+
+.capabilityCard > small {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.2rem;
+  color: var(--color-muted);
+  font-size: 0.65rem;
+  font-weight: 750;
+}
+
+.capabilityCard h3 {
+  max-width: 26ch;
+  margin: 1.2rem 0 0;
+  color: var(--color-primary);
+  font-size: var(--text-sm);
+  font-weight: 650;
+  line-height: 1.5;
+}
+
+.capabilityCard > i {
+  position: absolute;
+  right: -1.5rem;
+  bottom: -2.3rem;
+  width: 6rem;
+  height: 6rem;
+  border: 1px solid color-mix(in srgb, var(--color-secondary) 45%, transparent);
+  border-radius: 50%;
+}
+
+.panelKicker {
+  color: var(--color-muted);
+}
+
+.focusPanel ul,
+.outcomeCard ul {
+  display: grid;
+  gap: 0.75rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.focusPanel li,
+.outcomeCard li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  color: var(--color-ink);
+  font-size: var(--text-sm);
+  line-height: 1.5;
+}
+
+.focusPanel li svg {
+  flex: 0 0 auto;
+  margin-top: 0.1rem;
+  color: var(--color-secondary);
+}
+
+.outcomes {
+  padding-block: 0 3.5rem;
+}
+
+.outcomes > .container {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.outcomeCard {
+  min-height: 15rem;
+  padding: 1.35rem;
+}
+
+.contactCta {
+  padding-block: 2.2rem;
+  background: var(--color-secondary-soft);
+  color: var(--color-ink);
+}
+
+.contactCta > .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.contactCta .eyebrow {
+  color: var(--color-primary);
+}
+
+.contactCta h2 {
+  margin: 0.4rem 0 0;
+  color: var(--color-primary);
+  font-size: var(--text-2xl);
+  line-height: 1.25;
+}
+
+.contactCta p {
+  margin: 0.35rem 0 0;
+  color: var(--color-muted);
+  font-size: var(--text-sm);
+}
+
+.backLink:focus-visible,
+.primaryButton:focus-visible,
+.secondaryButton:focus-visible,
+.previewLink:focus-visible,
+.contactCta a:focus-visible {
+  outline: 3px solid var(--color-secondary);
+  outline-offset: 3px;
+}
+
+@media (max-width: 900px) {
+  .heroGrid {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 1.5rem;
+  }
+
+  .overview > .container {
+    grid-template-columns: minmax(0, 1fr) minmax(16rem, 0.85fr);
+    gap: 1.5rem;
+  }
+
+  .capabilityGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .container {
+    width: calc(100% - 2rem);
+  }
+
+  .heroGrid,
+  .overview > .container,
+  .capabilityGrid,
+  .outcomes > .container {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .heroGrid {
+    gap: 1.5rem;
+  }
+
+  .contactCta > .container {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .hero {
+    padding-bottom: 2rem;
+  }
+
+  .heroCopy h1 {
+    font-size: clamp(2rem, 8vw, 2.5rem);
+  }
+
+  .heroCopy > p {
+    font-size: var(--text-base);
+  }
+
+  .heroActions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    width: 100%;
+  }
+
+  .overview {
+    padding-block: 2.5rem;
+  }
+
+  .outcomes {
+    padding-bottom: 2.5rem;
+  }
+
+  .capabilities {
+    padding-bottom: 2.5rem;
+  }
+
+  .contactCta {
+    padding-block: 1.7rem;
+  }
+
+  .contactCta .primaryButton {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .primaryButton,
+  .secondaryButton {
+    transition: none;
+  }
+}

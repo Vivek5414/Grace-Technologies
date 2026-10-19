@@ -1,0 +1,148 @@
+:root {
+  --color-primary: #17365d;
+  --color-secondary: #22c3d6;
+  --color-neutral: #ffffff;
+  --color-accent: var(--color-secondary);
+  --color-primary-strong: color-mix(in srgb, var(--color-primary) 92%, var(--color-neutral));
+  --color-primary-soft: color-mix(in srgb, var(--color-primary) 8%, var(--color-neutral));
+  --color-secondary-soft: color-mix(in srgb, var(--color-secondary) 12%, var(--color-neutral));
+  --color-ink: color-mix(in srgb, var(--color-primary) 94%, var(--color-neutral));
+  --color-muted: #4b5963;
+  --color-border: color-mix(in srgb, var(--color-primary) 15%, var(--color-neutral));
+  --color-border-strong: color-mix(in srgb, var(--color-primary) 28%, var(--color-neutral));
+  --color-overlay: color-mix(in srgb, var(--color-primary) 76%, transparent);
+  --color-success: color-mix(in srgb, var(--color-secondary) 72%, var(--color-primary));
+  --color-error: var(--color-primary);
+  --color-surface: color-mix(in srgb, var(--color-neutral) 92%, var(--color-primary));
+  --color-surface-raised: var(--color-neutral);
+  --color-dark-surface: var(--color-primary);
+  --color-dashboard-canvas: color-mix(in srgb, var(--color-neutral) 95%, var(--color-primary));
+  --color-dashboard-grid: color-mix(in srgb, var(--color-primary) 9%, var(--color-neutral));
+  --color-dashboard-highlight: color-mix(in srgb, var(--color-secondary) 15%, var(--color-neutral));
+  --color-dashboard-secondary: color-mix(in srgb, var(--color-primary) 54%, var(--color-neutral));
+  --font-body: var(--font-geist-sans), "Segoe UI", sans-serif;
+  --font-display: var(--font-geist-sans), "Segoe UI", sans-serif;
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 2rem;
+  --text-4xl: 2.75rem;
+  --text-hero: 4.5rem;
+  --leading-tight: 1.08;
+  --leading-body: 1.7;
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-5: 3rem;
+  --space-6: 4rem;
+  --space-7: 6rem;
+  --container-width: 1200px;
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-pill: 999px;
+  --shadow-card: 0 16px 44px color-mix(in srgb, var(--color-primary) 9%, transparent);
+  --shadow-modal: 0 32px 90px color-mix(in srgb, var(--color-primary) 32%, transparent);
+  --shadow-header: 0 1px 0 color-mix(in srgb, var(--color-primary) 9%, transparent);
+  --transition-fast: 160ms ease;
+  --transition-standard: 240ms ease;
+  --z-header: 20;
+  --z-drawer: 30;
+  --z-modal: 100;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.public-site {
+  --color-primary: #344955;
+  --color-primary-strong: #2b3e48;
+  --color-secondary: #75cbd5;
+  --color-secondary-soft: #e8f7f8;
+  --color-primary-soft: #eef5f6;
+  --color-ink: #2f3e47;
+  --color-muted: #3e4d56;
+  --color-border: #e2e9eb;
+  --color-border-strong: #cad7db;
+  --color-surface: #fffdfa;
+  --color-surface-raised: #ffffff;
+  --color-neutral: #ffffff;
+  --color-error: #b84343;
+  min-height: 100vh;
+  background: var(--color-surface);
+  color: var(--color-ink);
+}
+
+html {
+  min-width: 320px;
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+  background: var(--color-surface);
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--leading-body);
+  letter-spacing: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-primary);
+}
+
+img,
+picture,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
