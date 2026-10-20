@@ -8,7 +8,7 @@ export default function Testimonials() {
       <div className={styles.inner}>
         <header className={styles.heading}>
           <span className={styles.eyebrow}>FICTIONAL EXAMPLES</span>
-          <h2 id="testimonials-heading">Illustrative Feedback Examples</h2>
+          <h2 id="testimonials-heading">What Our Clients Say</h2>
         </header>
 
         <p className={styles.sampleNotice}>
