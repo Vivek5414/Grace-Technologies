@@ -61,7 +61,6 @@
 }
 
 .catalogIntro > .eyebrow,
-.allServices .eyebrow,
 .contactCta .eyebrow {
   color: var(--color-primary);
 }
@@ -282,7 +281,7 @@
 
 .cardGrid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1rem;
 }
 
@@ -455,72 +454,6 @@
   box-shadow: 0 10px 32px color-mix(in srgb, var(--color-primary) 5%, transparent);
 }
 
-.allServices {
-  display: grid;
-  width: min(var(--container-width), calc(100% - 3rem));
-  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
-  align-items: start;
-  gap: 2rem;
-  margin: clamp(3rem, 6vw, 4.5rem) auto 0;
-  padding: clamp(1.3rem, 3vw, 2rem);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  background: var(--color-neutral);
-  box-shadow: 0 8px 28px color-mix(in srgb, var(--color-primary) 4%, transparent);
-}
-
-.allServices h2 {
-  margin: 0.45rem 0 0;
-  color: var(--color-primary);
-  font-family: var(--font-display);
-  font-size: clamp(1.4rem, 2.3vw, 1.9rem);
-  font-weight: 650;
-  letter-spacing: -0.025em;
-}
-
-.allServices p {
-  margin: 0.4rem 0 0;
-  color: var(--color-muted);
-  font-size: var(--text-sm);
-  line-height: 1.55;
-}
-
-.allServices ul {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.5rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.allServices a {
-  display: flex;
-  min-height: 2.7rem;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.5rem;
-  padding: 0.55rem 0.7rem;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
-  color: var(--color-primary);
-  font-size: var(--text-xs);
-  font-weight: 650;
-  text-decoration: none;
-  transition: border-color var(--transition-fast), background var(--transition-fast), transform var(--transition-fast);
-}
-
-.allServices a:hover {
-  transform: translateY(-1px);
-  border-color: var(--color-secondary);
-  background: var(--color-primary-soft);
-}
-
-.allServices a svg {
-  flex: 0 0 auto;
-  color: color-mix(in srgb, var(--color-primary) 40%, var(--color-secondary));
-}
-
 .ctaMark {
   display: grid;
   width: 3.4rem;
@@ -567,7 +500,6 @@
   .heroArt { min-height: 23rem; }
   .cardGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .card { min-height: 24rem; }
-  .allServices { grid-template-columns: minmax(0, 1fr); gap: 1rem; }
 }
 
 @media (max-width: 700px) {
@@ -595,10 +527,6 @@
     width: calc(100% - 2rem);
   }
 
-  .allServices {
-    width: calc(100% - 2rem);
-  }
-
   .heroCopy h1 { font-size: clamp(2.5rem, 12vw, 3.4rem); }
   .heroActions { align-items: flex-start; flex-direction: column; gap: 0.5rem; }
   .heroArt { min-height: 18rem; }
@@ -609,7 +537,6 @@
   .nodeCloud { top: 8%; right: 5%; }
   .nodeData { right: 5%; bottom: 10%; }
   .nodeFlow { bottom: 7%; left: 7%; }
-  .allServices ul { grid-template-columns: minmax(0, 1fr); }
   .contactCta { grid-template-columns: minmax(0, 1fr); }
   .contactCta > .primaryButton { grid-column: auto; width: 100%; }
 }

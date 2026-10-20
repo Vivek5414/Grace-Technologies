@@ -3,17 +3,8 @@
 import { useActionState } from "react";
 import { submitPublicEnquiry } from "@/app/actions/enquiry";
 import { initialEnquirySubmissionState } from "@/lib/enquiry-state";
+import { enquiryServices } from "@/lib/enquiry-services";
 import styles from "./EnquiryForm.module.css";
-
-const serviceOptions = [
-  { label: "Website Development", value: "Web Development" },
-  { label: "Custom Software Development", value: "Custom Software Development" },
-  { label: "IT Consulting", value: "IT Consulting" },
-  { label: "Cloud Solutions", value: "Cloud Solutions" },
-  { label: "Data Analytics", value: "AI and Data Solutions" },
-  { label: "Digital Transformation", value: "Digital Transformation" },
-  { label: "Other", value: "Other" },
-];
 
 export default function EnquiryForm() {
   const [state, formAction, pending] = useActionState(submitPublicEnquiry, initialEnquirySubmissionState);
@@ -33,8 +24,8 @@ export default function EnquiryForm() {
           <span>Service Type <span aria-hidden="true">*</span></span>
           <select name="service" defaultValue="" required>
             <option value="" disabled>Select a service</option>
-            {serviceOptions.map((service) => (
-              <option key={service.value} value={service.value}>{service.label}</option>
+            {enquiryServices.map((service) => (
+              <option key={service} value={service}>{service}</option>
             ))}
           </select>
         </label>

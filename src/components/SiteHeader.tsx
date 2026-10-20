@@ -9,7 +9,7 @@ import styles from "./SiteHeader.module.css";
 
 const navItems = [
   { label: "Home", href: "/" },
-  { label: "Industries", href: "/industries" },
+  { label: "Testimonials", href: "/#testimonials" },
   { label: "Projects", href: "/projects" },
   { label: "About", href: "/about" },
   { label: "Insights", href: "/insights" },

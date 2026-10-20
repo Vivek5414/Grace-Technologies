@@ -4,15 +4,8 @@ import { ArrowRight, LoaderCircle } from "lucide-react";
 import { useActionState } from "react";
 import { submitPublicEnquiry } from "@/app/actions/enquiry";
 import { initialEnquirySubmissionState } from "@/lib/enquiry-state";
+import { enquiryServices } from "@/lib/enquiry-services";
 import styles from "./ContactEnquiryForm.module.css";
-
-const serviceOptions = [
-  "Website Development & Mobile App Development",
-  "Merchant Account Management",
-  "AI Agents, Workflow & Automation",
-  "Digital Marketing",
-  "Other",
-];
 
 export default function ContactEnquiryForm() {
   const [state, formAction, pending] = useActionState(submitPublicEnquiry, initialEnquirySubmissionState);
@@ -36,7 +29,7 @@ export default function ContactEnquiryForm() {
           <span>Service Interested In <span aria-hidden="true">*</span></span>
           <select name="service" defaultValue="" required>
             <option value="" disabled>Select a service</option>
-            {serviceOptions.map((service) => (
+            {enquiryServices.map((service) => (
               <option key={service} value={service}>{service}</option>
             ))}
           </select>

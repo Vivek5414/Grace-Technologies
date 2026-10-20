@@ -1,7 +1,7 @@
 .footer {
   border-top: 3px solid var(--color-secondary);
-  background: #f4f9f9;
-  color: var(--color-ink);
+  background: #233746;
+  color: #d5e0e7;
 }
 
 .inner {
@@ -54,7 +54,7 @@
 .description {
   max-width: 25rem;
   margin: 1rem 0 0;
-  color: var(--color-muted);
+  color: #d5e0e7;
   font-size: 0.9375rem;
   line-height: 1.65;
 }
@@ -72,32 +72,32 @@
   align-items: start;
   gap: 0.65rem;
   min-width: 0;
-  color: var(--color-primary);
+  color: #d5e0e7;
   font-size: 0.9375rem;
   line-height: 1.55;
   text-decoration: none;
 }
 
 .contactDetails > a:hover {
-  color: var(--color-secondary);
+  color: #6ccbd8;
 }
 
 .contactDetails svg {
   width: 1.1rem;
   height: 1.1rem;
   margin-top: 0.15rem;
-  color: var(--color-secondary);
+  color: #6ccbd8;
 }
 
 .contactDetails address {
-  color: var(--color-muted);
+  color: #d5e0e7;
   font-style: normal;
   overflow-wrap: anywhere;
 }
 
 .column h2 {
   margin: 0 0 1.1rem;
-  color: var(--color-primary);
+  color: #ffffff;
   font-size: 0.8125rem;
   font-weight: 750;
   letter-spacing: 0.1em;
@@ -112,7 +112,7 @@
 
 .links a,
 .legal a {
-  color: var(--color-muted);
+  color: #d5e0e7;
   font-size: 0.9375rem;
   line-height: 1.5;
   text-decoration: none;
@@ -124,16 +124,17 @@
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
+  color: #6ccbd8;
 }
 
 .adminLink svg {
   flex: 0 0 auto;
-  color: var(--color-secondary);
+  color: #6ccbd8;
 }
 
 .links a:hover,
 .legal a:hover {
-  color: var(--color-secondary);
+  color: #6ccbd8;
 }
 
 .socialLinks {
@@ -150,17 +151,17 @@
   width: 2.5rem;
   height: 2.5rem;
   place-items: center;
-  border: 1px solid var(--color-border);
+  border: 1px solid #405564;
   border-radius: var(--radius-sm);
-  background: var(--color-neutral);
-  color: var(--color-primary);
+  background: #2d4352;
+  color: #ffffff;
   transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
 }
 
 .socialLinks a:hover {
-  border-color: var(--color-secondary);
-  background: var(--color-secondary);
-  color: var(--color-primary);
+  border-color: #6ccbd8;
+  background: #6ccbd8;
+  color: #233746;
 }
 
 .socialLinks a:focus-visible,
@@ -168,7 +169,7 @@
 .legal a:focus-visible,
 .contactDetails a:focus-visible,
 .brand:focus-visible {
-  outline: 3px solid var(--color-secondary);
+  outline: 3px solid #6ccbd8;
   outline-offset: 3px;
 }
 
@@ -185,8 +186,8 @@
   align-items: center;
   justify-content: space-between;
   gap: 1.5rem;
-  border-top: 1px solid var(--color-border);
-  color: var(--color-muted);
+  border-top: 1px solid #405564;
+  color: #d5e0e7;
   font-size: 0.8125rem;
   line-height: 1.5;
 }

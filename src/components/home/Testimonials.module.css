@@ -1,0 +1,120 @@
+.section {
+  padding-block: clamp(4rem, 7vw, 6rem);
+  background:
+    radial-gradient(ellipse at 50% 0, color-mix(in srgb, var(--color-secondary) 8%, transparent), transparent 32rem),
+    var(--color-primary-soft);
+}
+
+.inner {
+  width: min(var(--container-width), calc(100% - 3rem));
+  margin-inline: auto;
+}
+
+.heading {
+  margin-inline: auto;
+  text-align: center;
+}
+
+.eyebrow {
+  color: var(--color-primary);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.heading h2 {
+  margin-top: 0.65rem;
+  color: var(--color-primary);
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 650;
+  line-height: var(--leading-tight);
+}
+
+.sampleNotice {
+  width: fit-content;
+  max-width: 100%;
+  margin: 1rem auto 0;
+  padding: 0.45rem 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  background: var(--color-neutral);
+  color: var(--color-muted);
+  font-size: var(--text-xs);
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+.card {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  padding: clamp(1.35rem, 2.5vw, 2rem);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-neutral);
+  box-shadow: 0 0.65rem 2rem color-mix(in srgb, var(--color-primary) 6%, transparent);
+}
+
+.quoteIcon {
+  flex: 0 0 auto;
+  color: var(--color-secondary);
+  fill: color-mix(in srgb, var(--color-secondary) 14%, transparent);
+}
+
+.card blockquote {
+  flex: 1;
+  margin-top: 1rem;
+  color: var(--color-ink);
+  font-size: var(--text-base);
+  line-height: 1.75;
+}
+
+.divider {
+  height: 1px;
+  margin-block: 1.35rem 0.9rem;
+  background: var(--color-border);
+}
+
+.attribution {
+  color: var(--color-muted);
+  font-size: var(--text-xs);
+  font-weight: 650;
+}
+
+.emptyMessage {
+  max-width: 42rem;
+  margin: 2rem auto 0;
+  padding: 1.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-neutral);
+  color: var(--color-muted);
+  font-size: var(--text-sm);
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .inner {
+    width: calc(100% - 2rem);
+  }
+
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+  }
+}

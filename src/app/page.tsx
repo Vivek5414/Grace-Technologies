@@ -3,10 +3,10 @@ import About from "@/components/home/About";
 import Contact from "@/components/home/Contact";
 import Hero from "@/components/home/Hero";
 import HomeStats from "@/components/home/HomeStats";
-import Industries from "@/components/home/Industries";
 import Process from "@/components/home/Process";
 import Projects from "@/components/home/Projects";
 import Services from "@/components/home/Services";
+import Testimonials from "@/components/home/Testimonials";
 
 export const metadata: Metadata = {
   title: "Technology That Moves Your Business Forward",
@@ -20,7 +20,7 @@ export default function HomePage() {
       <Hero />
       <HomeStats />
       <Services />
-      <Industries />
+      <Testimonials />
       <Projects />
       <About />
       <Process />

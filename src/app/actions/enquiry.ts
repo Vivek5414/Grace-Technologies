@@ -2,22 +2,9 @@
 
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import type { EnquirySubmissionState } from "@/lib/enquiry-state";
+import { enquiryServices } from "@/lib/enquiry-services";
 
-const allowedServices = new Set([
-  "Website Development & Mobile App Development",
-  "Merchant Account Management",
-  "AI Agents, Workflow & Automation",
-  "Digital Marketing",
-  "Web Development",
-  "Custom Software Development",
-  "Mobile Application Development",
-  "IT Consulting",
-  "Cloud Solutions",
-  "AI and Data Solutions",
-  "UI/UX Design",
-  "Digital Transformation",
-  "Other",
-]);
+const allowedServices: ReadonlySet<string> = new Set(enquiryServices);
 
 type EnquiryInsert = {
   full_name: string;

@@ -56,7 +56,7 @@ const offerings = [
     href: "/services/ai-automation",
   },
   {
-    title: "Digital Marketing & Online Growth",
+    title: "Digital Marketing",
     description:
       "Reach the right audience and build a stronger digital presence with marketing strategies focused on your business objectives.",
     detail:

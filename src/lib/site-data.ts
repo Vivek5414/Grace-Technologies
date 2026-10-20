@@ -70,21 +70,21 @@ export const projects = [
     industry: "DEMO · WEB DESIGN",
     challenge: "A business needs a clear way to explain its services and help visitors make an enquiry.",
     solution: "A responsive, accessible website concept with simple navigation and a focused contact journey.",
-    outcome: "Illustrative deliverable: structured pages and enquiry flow. No real client result is claimed.",
+    outcome: "Clear service pages and a straightforward way for visitors to make an enquiry.",
   },
   {
     title: "E-commerce Platform",
     industry: "DEMO · COMMERCE",
     challenge: "Customers need product discovery and checkout to work smoothly across devices.",
     solution: "A commerce concept with clear product categories, accessible details, and a streamlined checkout flow.",
-    outcome: "Illustrative deliverable: a complete shopping journey concept. No real client result is claimed.",
+    outcome: "A product discovery and checkout journey designed for desktop and mobile.",
   },
   {
     title: "Business Automation Dashboard",
     industry: "DEMO · AUTOMATION",
     challenge: "A team wants a shared view of recurring tasks and workflow status.",
     solution: "A dashboard concept that groups common workflows, ownership, and progress in one interface.",
-    outcome: "Illustrative deliverable: a shared workflow overview. No real client result is claimed.",
+    outcome: "A shared dashboard concept showing task ownership and workflow status.",
   },
 ] as const;
 
