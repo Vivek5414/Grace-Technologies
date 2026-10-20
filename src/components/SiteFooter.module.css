@@ -11,30 +11,22 @@
 
 .top {
   display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 2fr);
-  gap: 3rem;
+  grid-template-columns:
+    minmax(0, 1.3fr)
+    minmax(0, 0.8fr)
+    minmax(0, 1.25fr)
+    minmax(0, 0.6fr);
+  gap: 2.5rem;
   padding-block: 3.5rem 3rem;
 }
 
 .identity,
-.column,
-.navigationColumns {
+.column {
   min-width: 0;
 }
 
 .identity {
   max-width: 26rem;
-}
-
-.navigationColumns {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr) minmax(0, 1fr);
-  align-content: start;
-  gap: 3rem;
-}
-
-.navigationColumns .column:first-child {
-  padding-inline-start: 1rem;
 }
 
 .brand {
@@ -98,7 +90,7 @@
 .column h2 {
   margin: 0 0 1.1rem;
   color: #ffffff;
-  font-size: 0.8125rem;
+  font-size: 1.1875rem;
   font-weight: 750;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -107,17 +99,21 @@
 .links {
   display: grid;
   justify-items: start;
-  gap: 1rem;
+  gap: 0.85rem;
 }
 
-.links a,
-.legal a {
+.links a {
+  min-width: 0;
   color: #d5e0e7;
   font-size: 0.9375rem;
-  line-height: 1.5;
+  line-height: 1.55;
   text-decoration: none;
   overflow-wrap: anywhere;
   transition: color var(--transition-fast);
+}
+
+.servicesColumn .links a {
+  max-width: 100%;
 }
 
 .links .adminLink {
@@ -132,15 +128,14 @@
   color: #6ccbd8;
 }
 
-.links a:hover,
-.legal a:hover {
+.links a:hover {
   color: #6ccbd8;
 }
 
 .socialLinks {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.55rem;
+  display: grid;
+  grid-template-columns: repeat(3, 2.5rem);
+  gap: 0.65rem;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -166,7 +161,6 @@
 
 .socialLinks a:focus-visible,
 .links a:focus-visible,
-.legal a:focus-visible,
 .contactDetails a:focus-visible,
 .brand:focus-visible {
   outline: 3px solid #6ccbd8;
@@ -199,33 +193,14 @@
   gap: 0.75rem 1.25rem;
 }
 
-.legal {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.legal a {
-  font-size: inherit;
-}
-
 @media (max-width: 960px) {
   .top {
-    grid-template-columns: minmax(0, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 2.5rem 3rem;
   }
 
   .identity {
     max-width: 42rem;
-  }
-
-  .navigationColumns {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 2.5rem 3rem;
-  }
-
-  .navigationColumns .column:last-child {
-    grid-column: 1;
   }
 
   .bottom {
@@ -255,19 +230,6 @@
     max-width: none;
   }
 
-  .navigationColumns {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 1.75rem;
-  }
-
-  .navigationColumns .column:first-child {
-    padding-inline-start: 0;
-  }
-
-  .navigationColumns .column:last-child {
-    grid-column: auto;
-  }
-
   .bottom {
     align-items: flex-start;
     flex-direction: column;
@@ -282,7 +244,6 @@
 
 @media (prefers-reduced-motion: reduce) {
   .links a,
-  .legal a,
   .socialLinks a {
     transition: none;
   }

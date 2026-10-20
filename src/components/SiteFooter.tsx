@@ -15,27 +15,20 @@ const quickLinks = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
-  { label: "Industries", href: "/industries" },
   { label: "Projects", href: "/projects" },
   { label: "Insights", href: "/insights" },
   { label: "Contact", href: "/contact" },
+  { label: "Privacy Policy", href: "/privacy" },
+  { label: "Terms of Service", href: "/terms" },
   { label: "Admin Login", href: "/admin/login" },
 ] as const;
 
 const serviceLinks = [
-  { label: "Website Development & Mobile App Development", href: "/services/web-development" },
+  { label: "Website Development", href: "/services/web-development" },
+  { label: "Mobile App Development", href: "/services/web-development" },
   { label: "Merchant Account Management", href: "/services/merchant-account-management" },
   { label: "AI Agents, Workflow & Automation", href: "/services/ai-automation" },
   { label: "Digital Marketing", href: "/services/digital-marketing" },
-] as const;
-
-const industryLinks = [
-  { label: "Healthcare", href: "/industries" },
-  { label: "Financial Services", href: "/industries" },
-  { label: "Retail", href: "/industries" },
-  { label: "Manufacturing", href: "/industries" },
-  { label: "Logistics", href: "/industries" },
-  { label: "Professional Services", href: "/industries" },
 ] as const;
 
 type SocialIconName = (typeof socialLinks)[number]["icon"];
@@ -93,49 +86,40 @@ export default function SiteFooter() {
               </div>
             </div>
           </div>
-          <div className={styles.navigationColumns}>
-            <nav className={styles.column} aria-label="Quick links">
-              <h2>Quick Links</h2>
-              <div className={styles.links}>
-                {quickLinks.map(({ label, href }) => (
-                  <Link className={label === "Admin Login" ? styles.adminLink : undefined} href={href} key={label}>
-                    {label === "Admin Login" && <LogIn size={15} aria-hidden="true" />}
-                    {label}
-                  </Link>
-                ))}
-              </div>
-            </nav>
-            <nav className={styles.column} aria-label="Services">
-              <h2>Our Services</h2>
-              <div className={styles.links}>
-                {serviceLinks.map(({ label, href }) => <Link href={href} key={label}>{label}</Link>)}
-              </div>
-            </nav>
-            <nav className={styles.column} aria-label="Industries">
-              <h2>Industries</h2>
-              <div className={styles.links}>
-                {industryLinks.map(({ label, href }) => <Link href={href} key={label}>{label}</Link>)}
-              </div>
-            </nav>
-          </div>
+          <nav className={styles.column} aria-label="Quick links">
+            <h2>Quick Links</h2>
+            <div className={styles.links}>
+              {quickLinks.map(({ label, href }) => (
+                <Link className={label === "Admin Login" ? styles.adminLink : undefined} href={href} key={label}>
+                  {label === "Admin Login" && <LogIn size={15} aria-hidden="true" />}
+                  {label}
+                </Link>
+              ))}
+            </div>
+          </nav>
+          <nav className={`${styles.column} ${styles.servicesColumn}`} aria-label="Services">
+            <h2>Our Services</h2>
+            <div className={styles.links}>
+              {serviceLinks.map(({ label, href }) => <Link href={href} key={label}>{label}</Link>)}
+            </div>
+          </nav>
+          <nav className={styles.column} aria-label="Connect">
+            <h2>Connect</h2>
+            <ul className={styles.socialLinks} aria-label="Social media">
+              {socialLinks.map(({ label, href, icon }) => (
+                <li key={label}>
+                  <a href={href} target="_blank" rel="noopener noreferrer" aria-label={label} title={label}>
+                    <SocialIcon name={icon} />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
         </div>
         <div className={styles.bottom}>
           <div className={styles.bottomMeta}>
             <span>© 2026 Grace Technologies Ltd. All rights reserved.</span>
-            <nav className={styles.legal} aria-label="Legal">
-              <Link href="/privacy">Privacy Policy</Link>
-              <Link href="/terms">Terms of Service</Link>
-            </nav>
           </div>
-          <ul className={styles.socialLinks} aria-label="Social media">
-            {socialLinks.map(({ label, href, icon }) => (
-              <li key={label}>
-                <a href={href} target="_blank" rel="noopener noreferrer" aria-label={label} title={label}>
-                  <SocialIcon name={icon} />
-                </a>
-              </li>
-            ))}
-          </ul>
         </div>
       </div>
     </footer>

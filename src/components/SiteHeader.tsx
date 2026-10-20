@@ -26,7 +26,7 @@ function Brand() {
         width={480}
         height={552}
         priority
-        sizes="(max-width: 380px) 73px, (max-width: 960px) 80px, 94px"
+        sizes="(max-width: 960px) 112px, 120px"
       />
     </Link>
   );
